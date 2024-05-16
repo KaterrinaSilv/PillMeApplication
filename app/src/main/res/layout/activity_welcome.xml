@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back2"
-    tools:context=".StartActivity"
-    android:windowFullscreen="true">
-
+    tools:context=".Welcome"
+    android:background="@drawable/back2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,11 +22,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <TextView
             android:id="@+id/tvWelcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Добро пожаловать в PillMe!"
+            android:text="Милаш, рады видеть тебя в нашем приложении ^^"
             android:textColor="@color/blue2"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -37,46 +36,14 @@
             android:layout_marginTop="20dp"
             />
 
-        <TextView
-            android:id="@+id/tvSubTitleIntro"
-            android:textColor="@color/blue2"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Войдите или зарегистрируйтесь, чтобы управлять своим здоровьем"
-            android:textSize="24sp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/time_icon"
             />
 
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Введите адрес электронной почты"
-            android:textColor="@color/blue2"
-            android:textSize="18sp"
-            android:padding="10dp"
-            android:background="@drawable/et"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="15dp"/>
 
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/blue2"
-            android:hint="Введите пароль"
-            android:textSize="18sp"
-            android:padding="10dp"
-            android:background="@drawable/et"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -93,23 +60,12 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSignUp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:text="Вход"
-            android:textStyle="bold"
-            android:textColor="@color/white1"
-            android:background="@drawable/btnauth"
-            />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSignIn"
+            android:id="@+id/btnContinue"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:textStyle="bold"
-            android:text="Регистрация"
+            android:text="Продолжить"
             android:textColor="@color/white1"
             android:background="@drawable/btnauth"
             />

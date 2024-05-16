@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1020959746490",
+    "project_id": "pillmeapplication",
+    "storage_bucket": "pillmeapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020959746490:android:00d172342575aecb69d583",
+        "android_client_info": {
+          "package_name": "ru.mirea.pillmeapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVDs7E84aELI2Kbvw-aEZmQvY8C5-1D0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
