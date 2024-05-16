@@ -12,16 +12,16 @@
         android:theme="@style/Theme.PillMeApplication"
         tools:targetApi="31">
         <activity
-            android:name=".Intro"
+            android:name=".auth.Intro"
             android:exported="false" />
         <activity
-            android:name=".Welcome"
+            android:name=".auth.Welcome"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
+            android:name=".auth.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

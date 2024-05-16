@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.auth
 
 import android.content.Intent
 import android.os.Bundle

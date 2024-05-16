@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.auth
 
 import android.content.Context
 import android.content.Intent
@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import ru.mirea.pillmeapplication.MainActivity
 import ru.mirea.pillmeapplication.databinding.ActivityStartBinding
 
 class StartActivity : AppCompatActivity() {
