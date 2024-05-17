@@ -36,12 +36,16 @@
             android:layout_marginTop="20dp"
             />
 
-        <ImageView
-            android:id="@+id/imageView"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/time_icon"
-            />
+            android:text="Управляйте своим здоровьем легко и эффективно. Включите уведомления о приеме лекарств и мы позаботимся о том, чтобы вы оставались на верном пути."
+            android:textColor="@color/blue2"
+            android:textSize="24sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"/>
+
 
 
     </LinearLayout>
@@ -65,8 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
-            android:text="Продолжить"
-            android:textColor="@color/white1"
+            android:text="Разрешить уведомления"
+            android:textColor="@color/blue2"
             android:background="@drawable/btnauth"
             />
     </LinearLayout>

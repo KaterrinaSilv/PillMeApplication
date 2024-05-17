@@ -1,16 +1,20 @@
 package ru.mirea.pillmeapplication.auth
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import ru.mirea.pillmeapplication.R
 import ru.mirea.pillmeapplication.databinding.ActivityWelcomeBinding
 
 class Welcome : AppCompatActivity() {
@@ -20,7 +24,13 @@ class Welcome : AppCompatActivity() {
     private lateinit var tvWelcome: TextView
     private lateinit var btnCont: Button
 
+    companion object {
+        const val NOTIFICATION_ID = 101
+        const val CHANNEL_ID = "channelID"
+    }
     val TAG = this::class.java.simpleName
+
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
@@ -58,6 +68,19 @@ class Welcome : AppCompatActivity() {
                 "Буньк!",
                 Toast.LENGTH_SHORT,
             ).show()
+
+            // Создаём уведомление
+            val builder = NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.status)
+                .setContentTitle("PILLME")
+                .setContentText("Магний ")
+                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+            val notificationManager = NotificationManagerCompat.from(this)
+            notificationManager.notify(NOTIFICATION_ID, builder.build())
+            Log.d(TAG, "Notify?")
+
         }
     }
 }

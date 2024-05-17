@@ -54,7 +54,7 @@
             android:layout_height="80dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="Ваше имя звучит как мелодия, \n не стесняйтесь поделиться им"
+            android:hint="Ваше имя звучит как мелодия, \nне стесняйтесь поделиться им"
             android:textColor="@color/blue2"
             android:textSize="18sp"
             android:padding="10dp"
@@ -87,7 +87,7 @@
             android:layout_weight="1"
             android:text="Продолжить"
             android:textSize="18sp"
-            android:textColor="@color/white1"
+            android:textColor="@color/blue2"
             android:background="@drawable/btnauth"
             />
     </LinearLayout>

@@ -99,7 +99,7 @@
             android:layout_weight="1"
             android:text="Вход"
             android:textSize="18sp"
-            android:textColor="@color/white1"
+            android:textColor="@color/blue2"
             android:background="@drawable/btnauth"
             />
 
@@ -110,7 +110,7 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:text="Регистрация"
-            android:textColor="@color/white1"
+            android:textColor="@color/blue2"
             android:background="@drawable/btnauth"
             />
     </LinearLayout>
