@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:text="Продолжить"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textColor="@color/white1"
             android:background="@drawable/btnauth"
             />
