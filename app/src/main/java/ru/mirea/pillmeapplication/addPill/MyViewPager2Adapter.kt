@@ -1,10 +1,12 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.addPill
 
 
 import android.util.ArrayMap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import ru.mirea.pillmeapplication.addPill.fragments.FragmentOne
+import ru.mirea.pillmeapplication.addPill.fragments.FragmentTwo
 
 
 class MyViewPager2Adapter(container: FragmentActivity) : FragmentStateAdapter(container),

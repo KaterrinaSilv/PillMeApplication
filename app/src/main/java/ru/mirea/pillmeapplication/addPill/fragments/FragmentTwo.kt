@@ -1,12 +1,14 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.addPill.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.activityViewModels
+import ru.mirea.pillmeapplication.R
+import ru.mirea.pillmeapplication.addPill.BaseFragment
+import ru.mirea.pillmeapplication.addPill.DataModel
 import ru.mirea.pillmeapplication.databinding.Fragment2Binding
 
 class FragmentTwo: BaseFragment(R.layout.fragment_2) {

@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.addPill
 
 import android.os.Bundle
 import android.view.LayoutInflater

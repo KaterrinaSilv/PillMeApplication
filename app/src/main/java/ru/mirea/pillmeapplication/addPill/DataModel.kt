@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.addPill
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,6 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.addPill
+
+import ru.mirea.pillmeapplication.addPill.BaseFragment
 
 interface FragmentReplacer {
     fun replace(position: Int, newFragment: BaseFragment, isNotify: Boolean = true)

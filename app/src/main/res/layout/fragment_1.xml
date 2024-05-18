@@ -1,35 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentOne">
-
+    android:orientation="vertical"
+    tools:context=".addPill.fragments.FragmentOne">
 
     <EditText
-        android:id="@+id/etFragmentOne"
-        android:layout_width="236dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="80dp"
+        android:id="@+id/etPillName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/blue2"
+        android:hint="Введите название препарата"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/et_add_pill"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/etPillForm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/blue2"
+        android:hint="Форма препарата"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/et_add_pill"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <EditText
+        android:id="@+id/etPillNum"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/blue2"
+        android:hint="Количество в упаковке"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/et_add_pill"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etPillDose"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/blue2"
+            android:hint="Дозировка"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:background="@drawable/et_add_pill"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:id="@+id/etDoseMean"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/blue2"
+            android:hint="мг"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:background="@drawable/et_add_pill"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etPillEatMean"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/blue2"
+        android:hint="до еды"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/et_add_pill"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+    <EditText
+        android:id="@+id/etPillComment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/blue2"
+        android:hint="комментарий"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/et_add_pill"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSbmt"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnContinueAddPill"
+        android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="80dp"
         android:background="@drawable/btn_main"
-        android:text="OK"
+        android:text="Продолжить"
+        android:textColor="@color/blue2"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFragmentOne" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"/>
+</LinearLayout>
