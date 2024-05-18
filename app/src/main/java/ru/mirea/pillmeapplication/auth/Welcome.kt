@@ -1,20 +1,22 @@
 package ru.mirea.pillmeapplication.auth
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import ru.mirea.pillmeapplication.R
+import ru.mirea.pillmeapplication.MainActivity
 import ru.mirea.pillmeapplication.databinding.ActivityWelcomeBinding
 
 class Welcome : AppCompatActivity() {
@@ -24,10 +26,12 @@ class Welcome : AppCompatActivity() {
     private lateinit var tvWelcome: TextView
     private lateinit var btnCont: Button
 
+
     companion object {
         const val NOTIFICATION_ID = 101
         const val CHANNEL_ID = "channelID"
     }
+
     val TAG = this::class.java.simpleName
 
     @SuppressLint("MissingPermission")
@@ -44,6 +48,8 @@ class Welcome : AppCompatActivity() {
 
         tvWelcome = binding.tvWelcome
         btnCont = binding.btnContinue
+
+
 
         if (user != null) {
             db.collection("users").document(user.uid!!).get()
@@ -63,24 +69,24 @@ class Welcome : AppCompatActivity() {
         }
 
         btnCont.setOnClickListener {
-            Toast.makeText(
-                baseContext,
-                "Буньк!",
-                Toast.LENGTH_SHORT,
-            ).show()
+            checkNotificationPermission()
+        }
 
-            // Создаём уведомление
-            val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.status)
-                .setContentTitle("PILLME")
-                .setContentText("Магний ")
-                .setAutoCancel(true)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+    }
 
-            val notificationManager = NotificationManagerCompat.from(this)
-            notificationManager.notify(NOTIFICATION_ID, builder.build())
-            Log.d(TAG, "Notify?")
 
+    private fun checkNotificationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.POST_NOTIFICATIONS), 12
+            )
+
+        } else {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 }
