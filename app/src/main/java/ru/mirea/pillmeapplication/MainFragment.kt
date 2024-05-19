@@ -13,6 +13,7 @@ import android.content.Intent
 import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.mirea.pillmeapplication.roomDB.MainDb
 import java.util.Calendar
@@ -45,12 +46,12 @@ class MainFragment : Fragment() {
 
         val db = MainDb.getDb(requireContext())
 
-        // все лекарства
-        db.getDao().getAllItems().asLiveData().observe(viewLifecycleOwner) {
-            rvPills.layoutManager = LinearLayoutManager(requireContext())
-            rvPills.adapter = CustomRecyclerAdapter(requireContext(), it)
-            rvPills.adapter?.notifyDataSetChanged()
-        }
+//        // все лекарства
+//        db.getDao().getAllItems().asLiveData().observe(viewLifecycleOwner) {
+//            rvPills.layoutManager = LinearLayoutManager(requireContext())
+//            rvPills.adapter = CustomRecyclerAdapter(requireContext(), it)
+//            rvPills.adapter?.notifyDataSetChanged()
+//        }
 
         // лекарства на сегодня
         db.getDao().getAllItemsForToday().asLiveData().observe(viewLifecycleOwner) {
@@ -65,7 +66,17 @@ class MainFragment : Fragment() {
             startActivity(intent)
         }
 
+
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val btnMedicine = view.findViewById<Button>(R.id.btnMedicine)
+        val btnProfile = view.findViewById<Button>(R.id.btnProfile)
+        val controller = findNavController()
+        btnMedicine.setOnClickListener { controller.navigate(R.id.action_mainFragment_to_pillListFragment) }
+        btnProfile.setOnClickListener { controller.navigate(R.id.action_mainFragment_to_profileFragment) }
     }
 
     private fun getPillList(): List<Pill> {
