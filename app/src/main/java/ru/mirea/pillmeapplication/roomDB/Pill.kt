@@ -54,7 +54,10 @@ data class Pill(
     var nextDate: String? = null,
 
     @ColumnInfo(name = "next_time")
-    var nextTime: String? = null
+    var nextTime: String? = null,
+
+    @ColumnInfo(name = "status")
+    var status: Boolean? = false
 ) {
     init {
         periodConvert()
@@ -73,15 +76,13 @@ data class Pill(
     }
 
     private fun calculateNextIntake() {
-        // Преобразовать дату начала в объект Calendar
         val startDateCalendar = convertDateToCalendar(dateStart)
 
-        // Разбить время на часы и минуты
         val timeParts = time.split(":")
         val hours = timeParts[0].toInt()
         val minutes = timeParts[1].toInt()
 
-        // Установить время в объекте Calendar
+
         startDateCalendar.set(Calendar.HOUR_OF_DAY, hours)
         startDateCalendar.set(Calendar.MINUTE, minutes)
 
@@ -113,6 +114,7 @@ data class Pill(
         nextTime = startDateCalendar.get(Calendar.HOUR_OF_DAY).toString() + ":" +
                 (startDateCalendar.get(Calendar.MINUTE) - timeBeforeMean).toString()
 
+        status = false
 
     }
 

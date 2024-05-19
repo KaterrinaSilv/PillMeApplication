@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.icu.util.Calendar
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +19,6 @@ import ru.mirea.pillmeapplication.roomDB.Pill
 
 class CustomRecyclerAdapter(private val context: Context, private var pillList: List<Pill>) :
     RecyclerView.Adapter<CustomRecyclerAdapter.MyViewHolder>(), View.OnClickListener {
-
 
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -45,17 +45,18 @@ class CustomRecyclerAdapter(private val context: Context, private var pillList: 
     var alarmManager: AlarmManager? = null
     val calendar = Calendar.getInstance()
     lateinit var nextTime: List<String>
+    var pillItem: Pill? = null
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-
+        var pillItem = pillList[position]
         alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
-            intent.putExtra("id", pillList[position].id)
-            intent.putExtra("name", pillList[position].name)
+            intent.putExtra("id", pillItem.id)
+            intent.putExtra("name", pillItem.name)
 
             PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
         }
-        nextTime = pillList[position].nextTime!!.split(":")
+        nextTime =pillItem.nextTime!!.split(":")
         calendar.set(Calendar.HOUR_OF_DAY, nextTime[0].toInt())
         calendar.set(Calendar.MINUTE, nextTime[1].toInt())
         alarmManager?.setExact(
@@ -64,7 +65,7 @@ class CustomRecyclerAdapter(private val context: Context, private var pillList: 
             alarmIntent
         )
 
-        nextTime = pillList[position].nextTime!!.split(":")
+        nextTime = pillItem.nextTime!!.split(":")
         calendar.set(Calendar.HOUR_OF_DAY, nextTime[0].toInt())
         calendar.set(Calendar.MINUTE, nextTime[1].toInt())
         alarmManager?.setExact(
@@ -74,16 +75,29 @@ class CustomRecyclerAdapter(private val context: Context, private var pillList: 
         )
 
 
-        holder.tvName.text = pillList[position].name
-        holder.tvTime.text = pillList[position].time
+
+        holder.tvName.text = pillItem.name
+        holder.tvTime.text = pillItem.time
         holder.itemView.setOnClickListener {
             rowIndex = position
             notifyDataSetChanged()
         }
+        checkStatuse(holder)
+            holder.btnStatus.setOnClickListener {
+                pillList[position].status = true
+                Log.d("onClick", pillItem.status.toString())
+                holder.btnStatus.setBackgroundResource(R.drawable.statuse_done)
+            }
 
 
+    }
 
-
+    private fun checkStatuse(holder: MyViewHolder) {
+        if (pillItem?.status == true){
+            holder.btnStatus.setBackgroundResource(R.drawable.statuse_done)
+        }else{
+            holder.btnStatus.setBackgroundResource(R.drawable.status)
+        }
     }
 
     override fun getItemCount(): Int {
