@@ -12,6 +12,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 import ru.mirea.pillmeapplication.addPill.DataModel
 import ru.mirea.pillmeapplication.addPill.MyViewPager2Adapter
 import ru.mirea.pillmeapplication.databinding.ActivityPillAddCardBinding
+import ru.mirea.pillmeapplication.roomDB.MainDb
+import ru.mirea.pillmeapplication.roomDB.Pill
 
 class PillAddCard : AppCompatActivity() {
 

@@ -1,16 +1,27 @@
 package ru.mirea.pillmeapplication
 
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.mirea.pillmeapplication.databinding.ActivityMainBinding
+import ru.mirea.pillmeapplication.roomDB.MainDb
+import ru.mirea.pillmeapplication.roomDB.Pill
 import java.time.LocalDate
 import java.util.Calendar
 
@@ -22,7 +33,6 @@ class MainActivity : AppCompatActivity() {
     private val TAG: String = this::class.java.name
 
     private var pillList: List<Pill> = mutableListOf()
-
 
 
 

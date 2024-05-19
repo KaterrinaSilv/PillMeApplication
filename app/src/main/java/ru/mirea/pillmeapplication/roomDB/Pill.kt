@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.roomDB
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -96,12 +96,22 @@ data class Pill(
         } else {
             monthStr = month.toString()
         }
+
+
         // Получить следующую дату и время
         nextDate = startDateCalendar.get(Calendar.YEAR).toString() + "-" +
                 monthStr + "-" +
                 startDateCalendar.get(Calendar.DAY_OF_MONTH).toString()
+        var timeBeforeMean: Int
+        if(timeBefore == "за 5 минут"){
+            timeBeforeMean = 5
+        } else if (timeBefore == "за 10 минут"){
+            timeBeforeMean = 10
+        } else {
+            timeBeforeMean = 30
+        }
         nextTime = startDateCalendar.get(Calendar.HOUR_OF_DAY).toString() + ":" +
-                startDateCalendar.get(Calendar.MINUTE).toString()
+                (startDateCalendar.get(Calendar.MINUTE) - timeBeforeMean).toString()
 
 
     }

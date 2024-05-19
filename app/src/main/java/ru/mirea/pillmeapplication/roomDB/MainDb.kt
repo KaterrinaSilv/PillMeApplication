@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.roomDB
 
 import android.content.Context
 import androidx.room.Database

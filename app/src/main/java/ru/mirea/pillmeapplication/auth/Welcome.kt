@@ -26,12 +26,6 @@ class Welcome : AppCompatActivity() {
     private lateinit var tvWelcome: TextView
     private lateinit var btnCont: Button
 
-
-    companion object {
-        const val NOTIFICATION_ID = 101
-        const val CHANNEL_ID = "channelID"
-    }
-
     val TAG = this::class.java.simpleName
 
     @SuppressLint("MissingPermission")
