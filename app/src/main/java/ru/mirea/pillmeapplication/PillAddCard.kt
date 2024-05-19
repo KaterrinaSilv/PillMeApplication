@@ -19,12 +19,8 @@ class PillAddCard : AppCompatActivity() {
     private val TAG: String = this::class.java.name
     private val dataModel: DataModel by viewModels()
 
-    private var name: String = ""
-    private var pasta: String = ""
-    private var num: String = ""
-
-//    private lateinit var pill: Pill
-
+    private lateinit var newPill1: List<String>
+    private lateinit var newPill2: List<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,35 +33,51 @@ class PillAddCard : AppCompatActivity() {
         view_pager_2.adapter = MyViewPager2Adapter(this)
         binding.btnContinueAddPill.setOnClickListener {
             var item = view_pager_2.currentItem
-            if(item != 1) {
+            if (item != 1) {
                 view_pager_2.setCurrentItem(item + 1)
             } else {
                 var intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("name", name)
-                intent.putExtra("num", "num")
-                startActivity(intent)
+
+                val db = MainDb.getDb(this)
+
+                val pill = Pill(
+                    null,
+                    newPill1[0],
+                    newPill1[1],
+                    newPill1[2],
+                    newPill1[3],
+                    newPill1[4],
+                    newPill1[5],
+                    newPill1[6],
+                    newPill2[0],
+                    newPill2[1],
+                    newPill2[2],
+                    newPill2[3],
+                    newPill2[4]
+                )
+                Thread {
+                    Log.d("onSaveClick", "addToDb")
+                    db.getDao().insertItem(pill)
+                }.start()
 
             }
         }
         var tab_layout: TabLayout = binding.tabLayout
         TabLayoutMediator(tab_layout, view_pager_2) { tab, position ->
-            tab.text = when(position) {
-                0 -> "Первый"
-                1 -> "Второй"
+            tab.text = when (position) {
+                0 -> "Новый препарат"
+                1 -> "Настройка приема"
                 else -> throw IllegalStateException()
             }
         }.attach()
 
-        dataModel.newPill.observe(this){
-            Log.d(TAG, "Name " + it[0])
-            name = it[0]
-
+        dataModel.newPill.observe(this) {
+            newPill1 = it
         }
-//        dataModel.messageNum.observe(this){
-//            Log.d(TAG, "Num $it")
-//            num = it
-//        }
 
+        dataModel.pillReception.observe(this) {
+            newPill2 = it
+        }
     }
 
 }

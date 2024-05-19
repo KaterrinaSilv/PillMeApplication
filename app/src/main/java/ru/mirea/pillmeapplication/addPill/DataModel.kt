@@ -11,4 +11,7 @@ open class DataModel : ViewModel() {
         MutableLiveData<List<String>>()
     }
 
+    val createPill: MutableLiveData<List<String>> by lazy {
+        MutableLiveData<List<String>>()
+    }
 }

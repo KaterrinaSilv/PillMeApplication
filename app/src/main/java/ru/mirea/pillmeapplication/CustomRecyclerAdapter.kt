@@ -35,7 +35,7 @@ class CustomRecyclerAdapter(private val context: Context, private var pillList: 
     var rowIndex: Int? = null
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.tvName.text = pillList[position].name
-        holder.tvTime.text = pillList[position].favoritePasta
+//        holder.tvTime.text = pillList[position].favoritePasta
         holder.itemView.setOnClickListener {
             rowIndex = position
             notifyDataSetChanged()
