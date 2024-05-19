@@ -32,6 +32,8 @@ class FragmentTwo : BaseFragment(R.layout.fragment_2) {
     private lateinit var dateStart: String
     private lateinit var dateEnd: String
     private lateinit var period: String
+    private lateinit var periodMean: String
+
 
     private val dataModel: DataModel by activityViewModels()
 
@@ -49,24 +51,21 @@ class FragmentTwo : BaseFragment(R.layout.fragment_2) {
         init()
 
         initDatePicker(btnDateStart)
-        btnDateStart.setText(getTodaysDate())
+        btnDateStart.text = getTodaysDate()
         btnDateStart.setOnClickListener {
             openDatePicker()
-            dateStart = btnDateStart.text.toString()
         }
 
         initDatePicker(btnDateEnd)
-        btnDateEnd.setText(getTodaysDate())
+        btnDateEnd.text = getTodaysDate()
         btnDateEnd.setOnClickListener {
             openDatePicker()
-            dateEnd = btnDateEnd.text.toString()
         }
 
         initTimePicker(btnTime)
-        btnTime.setText("00:00")
+        btnTime.text = "00:00"
         btnTime.setOnClickListener {
             openTimePicker()
-            time = btnTime.text.toString()
         }
 
 
@@ -74,8 +73,13 @@ class FragmentTwo : BaseFragment(R.layout.fragment_2) {
             if (binding.etPeriod.text != null && binding.etTimeBefore.selectedItem.toString() != null) {
                 period = binding.etPeriod.text.toString()
                 timeBefore = binding.etTimeBefore.selectedItem.toString()
-                dataModel.pillReception.value = listOf(time, timeBefore, dateStart, dateEnd, period)
-            } else{
+                dateStart = btnDateStart.text.toString()
+                dateEnd = btnDateEnd.text.toString()
+                time = btnTime.text.toString()
+                periodMean = binding.etPeriodMean.selectedItem.toString()
+                dataModel.pillReception.value = listOf(time, timeBefore, dateStart, dateEnd, period, periodMean)
+
+            } else {
                 Toast.makeText(context, "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show()
             }
         }
@@ -101,8 +105,7 @@ class FragmentTwo : BaseFragment(R.layout.fragment_2) {
 
     private fun initTimePicker(btn: Button) {
         val timeSetListener =
-            TimePickerDialog.OnTimeSetListener{
-                timePicker, hour, minute ->
+            TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 var time: String = makeTimeString(hour, minute)
                 btn.setText(time)
             }
@@ -110,8 +113,7 @@ class FragmentTwo : BaseFragment(R.layout.fragment_2) {
         val cal = Calendar.getInstance()
         val hour = cal[Calendar.HOUR_OF_DAY]
         val minute = cal[Calendar.MINUTE]
-
-        val style: Int = AlertDialog.THEME_HOLO_LIGHT
+        val style: Int = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT
 
         timePickerDialog = TimePickerDialog(context!!, timeSetListener, hour, minute, true)
     }
@@ -123,24 +125,25 @@ class FragmentTwo : BaseFragment(R.layout.fragment_2) {
                 var month = month
                 month = month + 1
                 val date: String = makeDateString(day, month, year)
-                btn.setText(date)
+                btn.text = date
             }
+
         val cal = Calendar.getInstance()
         val year = cal[Calendar.YEAR]
         val month = cal[Calendar.MONTH]
         val day = cal[Calendar.DAY_OF_MONTH]
 
-        val style: Int = AlertDialog.THEME_HOLO_LIGHT
-
+        val style: Int = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT
         datePickerDialog = DatePickerDialog(context!!, dateSetListener, year, month, day)
+
     }
 
     private fun makeTimeString(hour: Int, minute: Int): String {
         return "$hour:$minute"
     }
+
     private fun makeDateString(day: Int, month: Int, year: Int): String {
-        val monthString = getMonthFormat(month) // Assuming getMonthFormat returns a String
-        return "$monthString $day $year"
+        return "$year-$month-$day"
 
     }
 
@@ -174,9 +177,10 @@ class FragmentTwo : BaseFragment(R.layout.fragment_2) {
 
     }
 
-    fun openTimePicker(){
+    fun openTimePicker() {
         timePickerDialog.show()
     }
+
     fun openDatePicker() {
         datePickerDialog.show()
     }

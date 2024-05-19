@@ -19,8 +19,8 @@ class PillAddCard : AppCompatActivity() {
     private val TAG: String = this::class.java.name
     private val dataModel: DataModel by viewModels()
 
-    private lateinit var newPill1: List<String>
-    private lateinit var newPill2: List<String>
+    private var newPill1: List<String> = listOf()
+    private var newPill2: List<String> = listOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,12 +53,15 @@ class PillAddCard : AppCompatActivity() {
                     newPill2[1],
                     newPill2[2],
                     newPill2[3],
-                    newPill2[4]
+                    newPill2[4].toInt(),
+                    newPill2[5]
                 )
                 Thread {
                     Log.d("onSaveClick", "addToDb")
                     db.getDao().insertItem(pill)
                 }.start()
+
+                startActivity(intent)
 
             }
         }
