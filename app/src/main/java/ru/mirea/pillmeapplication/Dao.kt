@@ -13,4 +13,9 @@ interface Dao {
     @Query("SELECT * FROM pills")
     fun getAllItems(): Flow<List<Pill>>
 
+    @Query("SELECT * FROM pills WHERE DATE(next_date) = DATE('now')")
+    fun getAllItemsForToday(): Flow<List<Pill>>
+
+
+
 }

@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
         val db = MainDb.getDb(this)
 
         rvPills = binding.rvPills
+
+        // все лекарства
 //        db.getDao().getAllItems().asLiveData().observe(this){
 //
 //            rvPills.layoutManager = LinearLayoutManager(this)
@@ -53,24 +55,13 @@ class MainActivity : AppCompatActivity() {
 //            rvPills.adapter?.notifyDataSetChanged()
 //        }
 
-        db.getDao().getAllItems().asLiveData().observe(this){
-            val filteredList = it.filter { pill ->
-                val pillDateParts = pill.nextTime!!.split(",")[0].split("-")
-                val year = pillDateParts[0].toInt()
-                val month = pillDateParts[1].toInt() - 1 // Вычесть 1 из месяца, чтобы преобразовать его в формат "yyyy-MM-dd"
-                val day = pillDateParts[2].toInt()
-
-                val localDate = LocalDate.of(year, month, day)
-                println(localDate)
-                println(today)
-                localDate == today
-            }
+        // лекарства на сегодня
+        db.getDao().getAllItemsForToday().asLiveData().observe(this){
 
             rvPills.layoutManager = LinearLayoutManager(this)
-            rvPills.adapter = CustomRecyclerAdapter(this, filteredList)
+            rvPills.adapter = CustomRecyclerAdapter(this, it)
             rvPills.adapter?.notifyDataSetChanged()
         }
-
 
         btnAdd = binding.btnAdd
 

@@ -143,7 +143,13 @@ class FragmentTwo : BaseFragment(R.layout.fragment_2) {
     }
 
     private fun makeDateString(day: Int, month: Int, year: Int): String {
-        return "$year-$month-$day"
+        var monthStr: String
+        if (month<10){
+            monthStr = "0$month"
+        } else {
+            monthStr = month.toString()
+        }
+        return "$year-$monthStr-$day"
 
     }
 

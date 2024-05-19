@@ -50,6 +50,9 @@ data class Pill(
     @ColumnInfo(name = "periodMean")
     val periodMean: String,
 
+    @ColumnInfo(name = "next_date")
+    var nextDate: String? = null,
+
     @ColumnInfo(name = "next_time")
     var nextTime: String? = null
 ) {
@@ -86,14 +89,21 @@ data class Pill(
         val periodicityInMilliseconds = period
         startDateCalendar.add(Calendar.MILLISECOND, periodicityInMilliseconds)
 
+        val month = startDateCalendar.get(Calendar.MONTH) + 1
+        var monthStr: String
+        if (month<10){
+            monthStr = "0$month"
+        } else {
+            monthStr = month.toString()
+        }
         // Получить следующую дату и время
-        val nextDate = startDateCalendar.get(Calendar.YEAR).toString() + "-" +
-                (startDateCalendar.get(Calendar.MONTH) + 1).toString() + "-" +
+        nextDate = startDateCalendar.get(Calendar.YEAR).toString() + "-" +
+                monthStr + "-" +
                 startDateCalendar.get(Calendar.DAY_OF_MONTH).toString()
-        val lastTime = startDateCalendar.get(Calendar.HOUR_OF_DAY).toString() + ":" +
+        nextTime = startDateCalendar.get(Calendar.HOUR_OF_DAY).toString() + ":" +
                 startDateCalendar.get(Calendar.MINUTE).toString()
 
-        nextTime = "$nextDate,$lastTime"
+
     }
 
     fun convertDateToCalendar(dateString: String): Calendar {
