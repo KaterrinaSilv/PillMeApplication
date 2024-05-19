@@ -28,7 +28,7 @@
         android:id="@+id/btnContinueAddPill"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@drawable/btn_main"
+        android:background="@drawable/btn_ass_pill_variant"
         android:text="Продолжить"
         android:textColor="@color/blue2"
         android:textSize="18sp"
