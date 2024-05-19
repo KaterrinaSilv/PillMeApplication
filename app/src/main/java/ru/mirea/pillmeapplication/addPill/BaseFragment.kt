@@ -24,4 +24,6 @@ abstract class BaseFragment(private val layoutId: Int) : Fragment() {
         this.pagePos = pagePos
         this.fragmentReplacer = fragmentReplacer
     }
+
+
 }

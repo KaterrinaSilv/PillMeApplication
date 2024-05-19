@@ -2,4 +2,34 @@
     <string name="app_name">PillMeApplication</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="pillForm">
+        <item>Выберите форму препарата</item>
+        <item>Таблетки</item>
+        <item>Драже</item>
+        <item>Микстура</item>
+        <item>Раствор для инъекции</item>
+        <item>Другое</item>
+    </string-array>
+    <string-array name="pillDoseMean">
+        <item>штук</item>
+        <item>мл</item>
+        <item>г</item>
+        <item>Другое</item>
+    </string-array>
+    <string-array name="pillEatMean">
+        <item>до еды</item>
+        <item>после еды</item>
+        <item>не имеет значения</item>
+    </string-array>
+    <string-array name="timeBefore">
+        <item>за 5 минут</item>
+        <item>за 10 минут</item>
+        <item>за 30 минут</item>
+    </string-array>
+    <string-array name="period">
+        <item>день</item>
+        <item>час</item>
+        <item>минут</item>
+    </string-array>
 </resources>

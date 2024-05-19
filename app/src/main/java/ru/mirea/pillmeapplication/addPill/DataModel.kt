@@ -4,13 +4,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 open class DataModel : ViewModel() {
-    val messageName: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
+    val newPill: MutableLiveData<List<String>> by lazy {
+        MutableLiveData<List<String>>()
     }
-    val messagePasta: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
+    val pillReception: MutableLiveData<List<String>> by lazy {
+        MutableLiveData<List<String>>()
     }
-    val messageNum: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
+
 }

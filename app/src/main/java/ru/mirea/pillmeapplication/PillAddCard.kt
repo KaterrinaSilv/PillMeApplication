@@ -42,7 +42,7 @@ class PillAddCard : AppCompatActivity() {
             } else {
                 var intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("name", name)
-                intent.putExtra("num", num)
+                intent.putExtra("num", "num")
                 startActivity(intent)
 
             }
@@ -56,14 +56,15 @@ class PillAddCard : AppCompatActivity() {
             }
         }.attach()
 
-        dataModel.messageName.observe(this){
-            Log.d(TAG, "Name $it")
-            name = it
+        dataModel.newPill.observe(this){
+            Log.d(TAG, "Name " + it[0])
+            name = it[0]
+
         }
-        dataModel.messageNum.observe(this){
-            Log.d(TAG, "Num $it")
-            num = it
-        }
+//        dataModel.messageNum.observe(this){
+//            Log.d(TAG, "Num $it")
+//            num = it
+//        }
 
     }
 
