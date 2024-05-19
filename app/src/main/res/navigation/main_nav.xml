@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.mirea.pillmeapplication.MainFragment"
+        android:name="ru.mirea.pillmeapplication.main.fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/pillListFragment"
-        android:name="ru.mirea.pillmeapplication.PillListFragment"
+        android:name="ru.mirea.pillmeapplication.main.fragments.PillListFragment"
         android:label="fragment_pill_list"
         tools:layout="@layout/fragment_pill_list" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="ru.mirea.pillmeapplication.ProfileFragment"
+        android:name="ru.mirea.pillmeapplication.main.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

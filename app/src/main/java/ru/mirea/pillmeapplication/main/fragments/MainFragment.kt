@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.main.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,6 +15,8 @@ import android.widget.TextView
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.mirea.pillmeapplication.R
+import ru.mirea.pillmeapplication.main.CustomRecyclerAdapter
 import ru.mirea.pillmeapplication.roomDB.MainDb
 import java.util.Calendar
 

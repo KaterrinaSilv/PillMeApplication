@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.main.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.mirea.pillmeapplication.R
+import ru.mirea.pillmeapplication.main.CustomRecyclerAdapter
 import ru.mirea.pillmeapplication.roomDB.MainDb
 import ru.mirea.pillmeapplication.roomDB.Pill
 

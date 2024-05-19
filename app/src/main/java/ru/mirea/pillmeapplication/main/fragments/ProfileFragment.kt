@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.main.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -7,12 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import ru.mirea.pillmeapplication.R
 
 class ProfileFragment : Fragment() {
     private lateinit var tvProfileName: TextView

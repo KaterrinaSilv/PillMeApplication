@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.main.fragments
 
 
 import android.content.Intent
@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import ru.mirea.pillmeapplication.MainActivity
 import ru.mirea.pillmeapplication.addPill.DataModel
 import ru.mirea.pillmeapplication.addPill.MyViewPager2Adapter
 import ru.mirea.pillmeapplication.databinding.ActivityPillAddCardBinding

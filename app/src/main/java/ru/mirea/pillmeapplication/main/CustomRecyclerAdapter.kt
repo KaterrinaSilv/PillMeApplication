@@ -1,4 +1,4 @@
-package ru.mirea.pillmeapplication
+package ru.mirea.pillmeapplication.main
 
 
 import android.app.AlarmManager
@@ -12,8 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.getSystemService
 import androidx.recyclerview.widget.RecyclerView
+import ru.mirea.pillmeapplication.R
 import ru.mirea.pillmeapplication.roomDB.Pill
 
 
